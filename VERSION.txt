@@ -1,0 +1,3 @@
+JLABS Quiz v1.0
+Vanilla HTML/CSS/JavaScript
+To-dos: implement adding more quiz sectioned by module so pupils are able to take quiz base on selected module covered in curriculum.

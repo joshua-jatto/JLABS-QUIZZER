@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JLABS Student Quiz Platform">
+  <title>JLABS Student Quiz</title>
+  <link rel="icon" type="image/png" href="assets/jlabs-logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="brand-header">
+      <img src="assets/jlabs-logo.png" alt="JLABS logo" class="logo">
+      <div>
+        <p class="eyebrow">JLABS LEARNING</p>
+        <h1>Student Quiz</h1>
+        <p class="subtitle">Test your understanding. Review your performance. Keep improving.</p>
+      </div>
+    </header>
+
+    <section id="start-screen" class="card">
+      <div class="section-heading">
+        <span class="step">01</span>
+        <div>
+          <h2>Start Quiz</h2>
+          <p>Enter your name before beginning. Your name is included in the performance report.</p>
+          <p>Keep calm! This quiz is designed to reinforce your learning.</p>
+
+        </div>
+      </div>
+
+      <label for="student-name">Student name</label>
+      <input id="student-name" type="text" maxlength="80" autocomplete="name"
+             placeholder="Enter your full name">
+
+      <div class="quiz-info">
+        <div><strong id="question-count">30</strong><span>Questions</span></div>
+        <div><strong>Week 1</strong><span>Foundation</span></div>
+        <div><strong>MCQ</strong><span>Single answer</span></div>
+      </div>
+
+      <button id="start-btn" class="primary-btn">Start Quiz</button>
+      <p id="start-error" class="error" role="alert"></p>
+    </section>
+
+    <section id="quiz-screen" class="hidden">
+      <div class="quiz-topbar">
+        <div>
+          <span class="muted">Student</span>
+          <strong id="quiz-student"></strong>
+        </div>
+        <div class="progress-text">
+          Question <strong id="current-number">1</strong> of <strong id="total-number">30</strong>
+        </div>
+      </div>
+
+      <div class="progress-track">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+
+      <article class="card question-card">
+        <div class="topic-pill" id="question-topic">Topic</div>
+        <h2 id="question-text"></h2>
+        <div id="options" class="options"></div>
+        <p id="selection-note" class="selection-note">Select one answer to continue.</p>
+
+        <div class="quiz-actions">
+          <button id="prev-btn" class="secondary-btn">Previous</button>
+          <button id="next-btn" class="primary-btn" disabled>Next</button>
+        </div>
+      </article>
+    </section>
+
+    <section id="result-screen" class="hidden">
+      <div class="result-hero card">
+        <div class="success-mark">✓</div>
+        <p class="eyebrow">QUIZ COMPLETED</p>
+        <h2 id="result-title">Performance Report</h2>
+        <p id="result-summary"></p>
+        <div class="score-circle">
+          <span id="score-percent">0%</span>
+          <small>Score</small>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="result-grid">
+          <div><span>Correct</span><strong id="correct-count">0</strong></div>
+          <div><span>Incorrect</span><strong id="incorrect-count">0</strong></div>
+          <div><span>Unanswered</span><strong id="unanswered-count">0</strong></div>
+          <div><span>Total</span><strong id="result-total">0</strong></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-heading compact">
+          <span class="step">02</span>
+          <div>
+            <h2>Topic Breakdown</h2>
+            <p>See where the student performed well and where more practice is needed.</p>
+          </div>
+        </div>
+        <div id="topic-breakdown" class="breakdown-list"></div>
+      </div>
+
+      <div class="card">
+        <div class="section-heading compact">
+          <span class="step">03</span>
+          <div>
+            <h2>Questions to Review</h2>
+            <p id="review-intro"></p>
+          </div>
+        </div>
+        <div id="review-list" class="review-list"></div>
+      </div>
+
+      <div class="card share-card">
+        <h2>Send Your Result to JLABS</h2>
+        <p>Share a screenshot of this report or download the TXT report and send it to your tutor via WhatsApp.</p>
+        <div class="share-actions">
+          <button id="copy-btn" class="secondary-btn">Copy Result</button>
+          <button id="download-btn" class="secondary-btn">Download TXT</button>
+          <button id="whatsapp-btn" class="primary-btn">Share via WhatsApp</button>
+        </div>
+        <p id="copy-status" class="selection-note"></p>
+      </div>
+
+      <div class="result-actions">
+        <button id="retake-btn" class="secondary-btn">Retake Quiz</button>
+        <button id="new-student-btn" class="primary-btn">New Student</button>
+      </div>
+    </section>
+
+    <footer>
+      <p>JLABS 2026 • Student Learning & Performance Quiz </p>
+      <p>Static app — no database, backend, or API required.</p>
+    </footer>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
